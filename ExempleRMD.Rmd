@@ -19,7 +19,8 @@ It is well known that climate influences people hapiness..
 ## METHODS
 
 ```{r}
-datos <- read.table("reprosci/data.txt", header = TRUE)
+datos <- read.table("data.txt", header = TRUE)
+datos <- datos[-c(32, 36, 42, 56)]
 ```
 
 ```{r}
@@ -39,7 +40,7 @@ We fount that happiness is positively related to sunshine hours (`r coef(modelo)
 
 ```{r}
 library(visreg)
-visreg(modelo)
+visreg(modelo, gg = TRUE)
 ```
 
 ```{r}
