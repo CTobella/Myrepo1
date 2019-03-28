@@ -1,0 +1,58 @@
+---
+title: "Es bueno el solecito para la felicidad"
+author: "Carles Tobella"
+date: "28 de marzo de 2019"
+output:
+  word_document: default
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: console
+csl: ecology-letters.csl
+bibliography: references.bib
+---
+
+## INTRODUCCION
+
+It is well known that climate influences people hapiness..
+
+## METHODS
+
+```{r}
+datos <- read.table("reprosci/data.txt", header = TRUE)
+```
+
+```{r}
+modelo <- lm(happiness ~ sunshine, data = datos)
+```
+
+We interviwed `r nrow(datos)` people and fitted a linear model.
+$$
+Y = alpha\ 
+$$
+
+
+## RESULTS
+
+We fount that happiness is positively related to sunshine hours (`r coef(modelo)[2]`)
+(slope)
+
+```{r}
+library(visreg)
+visreg(modelo)
+```
+
+```{r}
+library(knitr)
+library(xtable)
+kable(xtable(modelo))
+```
+
+## DISCUSSION
+
+Abcd
+
+## REFERENCES
+[@Rezende_2007]
+[@Young_2018]
+
